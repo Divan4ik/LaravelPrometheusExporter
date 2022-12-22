@@ -1,5 +1,5 @@
 {
-    "name": "triadev/laravel-prometheus-exporter",
+    "name": "divan4ik/laravel-prometheus-exporter",
     "description": "A laravel and lumen service provider to export metrics for prometheus.",
     "keywords": [
         "Laravel",
@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=7.2",
-        "endclothing/prometheus_client_php": "^1.0",
+        "promphp/prometheus_client_php": "^1.0",
         "illuminate/support": "^5.6|^6.0"
     },
     "require-dev": {

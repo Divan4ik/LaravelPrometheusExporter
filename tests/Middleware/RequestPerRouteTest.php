@@ -38,7 +38,7 @@ class RequestPerRouteTest extends TestCase
     {
         $this->get('testing');
         
-        $metricResponse = $this->get('/triadev/pe/metrics');
+        $metricResponse = $this->get('/metrics');
         
         $requestsTotal = null;
         if (preg_match('/app_requests_total{route="testing",method="GET",status_code="200"} (?<metric>[0-9]+)/', $metricResponse->getContent(), $matches)) {
@@ -75,7 +75,7 @@ class RequestPerRouteTest extends TestCase
     {
         $this->get('requestPerRoute');
         
-        $metricResponse = $this->get('/triadev/pe/metrics');
+        $metricResponse = $this->get('/metrics');
         
         $requestsTotal = null;
         if (preg_match('/app_requests_total{route="requestPerRoute",method="GET",status_code="200"} (?<metric>[0-9]+)/', $metricResponse->getContent(), $matches)) {

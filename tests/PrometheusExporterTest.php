@@ -23,7 +23,7 @@ class PrometheusExporterTest extends TestCase
     private function getMetricResponseCallableForLaravel() : \Closure
     {
         return function () {
-            return $this->get('/triadev/pe/metrics');
+            return $this->get('/metrics');
         };
     }
     
