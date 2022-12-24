@@ -29,7 +29,7 @@ class GuzzleMiddleware
      *
      * @return callable Returns a function that accepts the next handler.
      */
-    public function __invoke(callable $handler) : callable
+    public function __invoke(callable $handler): callable
     {
         return function (Request $request, array $options) use ($handler) {
             $start = microtime(true);

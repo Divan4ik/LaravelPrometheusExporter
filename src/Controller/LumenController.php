@@ -1,4 +1,5 @@
 <?php
+
 namespace Triadev\PrometheusExporter\Controller;
 
 use Illuminate\Http\Response;
@@ -30,10 +31,10 @@ class LumenController extends Controller
      *
      * @return Response
      */
-    public function metrics() : Response
+    public function metrics(): Response
     {
         $renderer = new RenderTextFormat();
-        
+
         return \response()->make(
             $renderer->render($this->prometheusExporter->getMetricFamilySamples())
         )->header('Content-Type', RenderTextFormat::MIME_TYPE);

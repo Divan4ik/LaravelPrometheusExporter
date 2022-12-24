@@ -14,7 +14,7 @@ class GuzzleServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() : void
+    public function register(): void
     {
         $this->app->singleton('prometheus.guzzle.client.histogram', function ($app) {
             return $app['prometheus']->getOrRegisterHistogram(
@@ -45,7 +45,7 @@ class GuzzleServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides() : array
+    public function provides(): array
     {
         return [
             'prometheus.guzzle.client',

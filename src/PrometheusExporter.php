@@ -1,4 +1,5 @@
 <?php
+
 namespace Triadev\PrometheusExporter;
 
 use Prometheus\PushGateway;
@@ -33,14 +34,14 @@ class PrometheusExporter implements PrometheusExporterContract
     {
         return $this->registry->getMetricFamilySamples();
     }
-    
+
     /**
      * @inheritdoc
      */
     public function incCounter($name, $help, $namespace = null, array $labelKeys = [], array $labelValues = [])
     {
         $namespace = $this->getNamespace($namespace);
-        
+
         try {
             $counter = $this->registry->getCounter($namespace, $name);
         } catch (MetricNotFoundException $e) {
@@ -51,7 +52,7 @@ class PrometheusExporter implements PrometheusExporterContract
 
         $this->pushGateway($this->registry, 'inc');
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -75,7 +76,7 @@ class PrometheusExporter implements PrometheusExporterContract
 
         $this->pushGateway($this->registry, 'incBy');
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -93,7 +94,7 @@ class PrometheusExporter implements PrometheusExporterContract
 
         $this->pushGateway($this->registry, 'gauge');
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -111,7 +112,7 @@ class PrometheusExporter implements PrometheusExporterContract
 
         $this->pushGateway($this->registry, 'inc');
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -135,7 +136,7 @@ class PrometheusExporter implements PrometheusExporterContract
 
         $this->pushGateway($this->registry, 'incBy');
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -160,8 +161,8 @@ class PrometheusExporter implements PrometheusExporterContract
 
         $this->pushGateway($this->registry, 'histogram');
     }
-    
-    private function getNamespace(?string $namespace = null) : string
+
+    private function getNamespace(?string $namespace = null): string
     {
         if (!$namespace) {
             $namespace = config('prometheus-exporter.namespace');
@@ -169,12 +170,12 @@ class PrometheusExporter implements PrometheusExporterContract
 
         return $namespace;
     }
-    
+
     private function pushGateway(CollectorRegistry $registry, string $job, ?array $groupingKey = null)
     {
         if (config('prometheus-exporter.adapter') == 'push') {
             $pushGateway = new PushGateway(config('prometheus-exporter.push_gateway.address'));
-            
+
             $pushGateway->push(
                 $registry,
                 $job,

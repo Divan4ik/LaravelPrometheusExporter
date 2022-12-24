@@ -9,3 +9,6 @@ To see full documentation please vizit [triadev/LaravelPrometheusExporter](https
 
 ## Installation
 ``` composer require divan4ik/laravel-prometheus-exporter ```
+
+## Testing
+``` docker-compose run --rm fpm "vendor/bin/phpunit" ```

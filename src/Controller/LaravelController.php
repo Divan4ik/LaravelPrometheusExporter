@@ -1,4 +1,5 @@
 <?php
+
 namespace Triadev\PrometheusExporter\Controller;
 
 use Illuminate\Http\Response;
@@ -30,7 +31,7 @@ class LaravelController extends Controller
      *
      * @return Response
      */
-    public function metrics() : Response
+    public function metrics(): Response
     {
         $renderer = new RenderTextFormat();
 

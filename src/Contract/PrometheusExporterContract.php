@@ -1,4 +1,5 @@
 <?php
+
 namespace Triadev\PrometheusExporter\Contract;
 
 use Prometheus\Exception\MetricsRegistrationException;
@@ -60,7 +61,7 @@ interface PrometheusExporterContract
      * @throws MetricsRegistrationException
      */
     public function setGauge($name, $help, $value, $namespace = null, array $labelKeys = [], array $labelValues = []);
-    
+
     /**
      * Inc by gauge
      *
@@ -73,7 +74,7 @@ interface PrometheusExporterContract
      * @throws MetricsRegistrationException
      */
     public function incGauge($name, $help, $namespace = null, array $labelKeys = [], array $labelValues = []);
-    
+
     /**
      * incBy Gauge
      *
@@ -94,7 +95,7 @@ interface PrometheusExporterContract
         array $labelKeys = [],
         array $labelValues = []
     );
-    
+
     /**
      * Set histogram
      *
