@@ -1,4 +1,5 @@
 <?php
+
 namespace Triadev\PrometheusExporter\Provider;
 
 use Illuminate\Routing\Router;

@@ -1,4 +1,5 @@
 <?php
+
 namespace Triadev\PrometheusExporter\Middleware;
 
 use Illuminate\Http\Request;
