@@ -5,6 +5,8 @@ return [
 
     'namespace' => 'app',
 
+    'fpm_metrics_namespace' => 'fpm',
+
     'namespace_http' => 'http',
 
     'redis' => [

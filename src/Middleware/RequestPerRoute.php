@@ -62,7 +62,7 @@ class RequestPerRoute
         $this->prometheusExporter->incCounter(
             'requests_total',
             'the number of http requests',
-            config('prometheus_exporter.namespace_http'),
+            config('prometheus-exporter.namespace_http'),
             [
                 'route',
                 'method',
@@ -96,7 +96,7 @@ class RequestPerRoute
             'requests_latency_milliseconds',
             'duration of requests',
             $duration,
-            config('prometheus_exporter.namespace_http'),
+            config('prometheus-exporter.namespace_http'),
             [
                 'route',
                 'method',
