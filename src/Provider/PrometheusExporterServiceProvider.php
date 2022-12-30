@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Prometheus\Storage\InMemory;
 use Triadev\PrometheusExporter\Contract\PrometheusExporterContract;
 use Prometheus\Storage\Redis;
+use Triadev\PrometheusExporter\Adapter\Predis;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\Adapter;
 use Triadev\PrometheusExporter\Middleware\RequestPerRoute;
@@ -79,6 +80,11 @@ class PrometheusExporterServiceProvider extends ServiceProvider
                 $this->app->bind(Adapter::class, function () {
                     return new Redis(config('prometheus-exporter.redis'));
                 });
+                break;
+            case 'predis':
+                    $this->app->bind(Adapter::class, function () {
+                        return new Predis();
+                    });
                 break;
             case 'push':
                 $this->app->bind(Adapter::class, APC::class);
